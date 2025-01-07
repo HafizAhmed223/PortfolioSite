@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Card,
@@ -19,8 +19,8 @@ const projects = [
       'Delivered actionable insights for consumers and managers, enhancing decision-making efficiency.',
     ],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-    github: 'https://github.com/HafizAhmed223/auto-magic',
-    demo: 'https://auto-magic-demo.vercel.app',
+    github: 'https://github.com/HafizAhmed223/fyp-frontend',
+    demo: 'https://fyp-frontend-pied.vercel.app',
   },
   {
     title: 'Maweidi (Healthcare Management)',
@@ -30,8 +30,8 @@ const projects = [
       'Enabled seamless appointment booking and integrated video consultations.',
     ],
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
-    github: 'https://github.com/HafizAhmed223/maweidi',
-    demo: 'https://maweidi-demo.vercel.app',
+    github: 'https://github.com/HafizAhmed223',
+    demo: 'https://www.maweidi.com.kw/?fbclid=IwZXh0bgNhZW0CMTAAAR1YJnkAuQz6KmBDaJnkbDssv8tqy450jvDW9iunSlwNPd3KMO4BfZZKU14_aem_YLrqxRIK9NkAV7MZtdUUog',
   },
   {
     title: 'TB Dashboard',
@@ -41,13 +41,13 @@ const projects = [
       'Improved UX through clean and optimized code structures.',
     ],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-    github: 'https://github.com/HafizAhmed223/tb-dashboard',
-    demo: 'https://tb-dashboard-demo.vercel.app',
+    github: 'https://github.com/HafizAhmed223',
+    demo: 'https://tb.eghosting.site/login',
   },
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  // const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section id="projects" className="py-20 bg-muted/30">
