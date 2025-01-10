@@ -15,7 +15,7 @@ export default function Hero() {
             Hi, I'm Ahmed Waseem
           </h1>
           <h2 className="text-2xl md:text-3xl text-muted-foreground mb-6">
-            Full Stack Developer & AWS Certified
+            Software Engineer & AWS Certified
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             Passionate about building scalable web applications and creating

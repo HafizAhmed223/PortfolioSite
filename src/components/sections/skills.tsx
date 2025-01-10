@@ -8,6 +8,8 @@ const skills = [
   { name: 'JavaScript', level: 90 },
   { name: 'Python', level: 80 },
   { name: 'AWS', level: 75 },
+  { name: 'Shopify Plus', level: 60 },
+  { name: 'SQA', level: 75 },
   { name: 'MongoDB', level: 85 },
   { name: 'Docker', level: 70 },
   { name: 'TypeScript', level: 80 },

@@ -24,12 +24,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Toggling mobile menu with closing on item click
+  const handleMenuItemClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <header className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-md shadow-md' : 'bg-transparent'
-      )}>
+      <header
+        className={cn(
+          'fixed top-0 w-full z-50 transition-all duration-300',
+          isScrolled ? 'bg-background/80 backdrop-blur-md shadow-md' : 'bg-transparent'
+        )}
+      >
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
           <a href="#" className="text-2xl font-bold">
             Ahmed<span className="text-primary">.</span>
@@ -64,14 +71,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-md border-b">
+          <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-md border-b z-50">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={handleMenuItemClick} // Close menu on item click
                 >
                   {item.name}
                 </a>

@@ -9,7 +9,7 @@ import {
 
 const experiences = [
   {
-    title: 'MERN Stack Developer',
+    title: 'Associate Software Engineer',
     company: 'TxLabz',
     period: 'July 2023 - August 2024',
     location: 'Lahore, Pakistan',
@@ -18,10 +18,11 @@ const experiences = [
       'Built dynamic, responsive dashboards with role-based access control.',
       'Created APIs using Node.js with MongoDB as a database.',
       'Automated CI/CD pipelines with GitHub Actions and Docker, reducing deployment time.',
+      'Conducted QA testing to ensure cross-browser compatibility and performance.',
     ],
   },
   {
-    title: 'Full Stack Developer & AWS Engineer',
+    title: 'Software Engineer | SQA | AWS Engineer',
     company: 'AI4LYF',
     period: 'August 2024 - December 2024',
     location: 'Lahore, Pakistan',
@@ -29,6 +30,7 @@ const experiences = [
       'Closely worked on designing and deploying AWS infrastructure.',
       'Automated resource scaling with AWS Auto Scaling Groups and implemented authentication mechanisms.',
       'Created APIs using Fast APIs integrating microservices architecture.',
+      'Implemented QA procedures for system stability and performance validation.',
     ],
   },
 ];
