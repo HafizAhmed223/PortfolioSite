@@ -34,7 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="#" className="text-3xl font-bold">
+          <a href="#" className="text-2xl font-bold">
             Ahmed<span className="text-primary">.</span>
           </a>
 
