@@ -1,6 +1,15 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+:root {
+  --primary: 265 85% 60%; /* Rich violet */
+  --primary-foreground: 0 0% 100%;
+}
+
+.dark {
+  --primary: 265 70% 70%; /* Slightly lighter in dark mode */
+  --primary-foreground: 0 0% 0%;
 }

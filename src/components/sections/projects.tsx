@@ -50,7 +50,7 @@ export default function Projects() {
   // const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-muted/30 flex items-center justify-center">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

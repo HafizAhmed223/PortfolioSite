@@ -24,7 +24,6 @@ const formSchema = z.object({
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,12 +36,11 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log(values);
       toast.success('Message sent successfully!');
       form.reset();
-    } catch (error) {
+    } catch {
       toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -50,66 +48,45 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-20 bg-muted/30 flex items-center justify-center">
       <div className="container px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to reach out!
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+            Let’s Connect
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg mt-3 max-w-2xl mx-auto">
+            Whether it’s a new project, job opportunity, or just a chat—I'm always open.
           </p>
         </motion.div>
 
+        {/* Form Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-md mx-auto"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="w-full max-w-xl mx-auto bg-white/70 dark:bg-white/10 backdrop-blur-sm border border-border rounded-2xl shadow-xl p-8 md:p-10"
         >
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* Name */}
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
+                  <FormItem className="group">
+                    <FormLabel className="text-sm font-medium">Your Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your email" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Your message"
-                        className="min-h-[120px]"
+                      <Input
+                        placeholder="John Doe"
+                        className="focus-visible:ring-2 focus-visible:ring-primary transition-all duration-200"
                         {...field}
                       />
                     </FormControl>
@@ -117,7 +94,49 @@ export default function Contact() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {/* Email */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-medium">Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="you@example.com"
+                        type="email"
+                        className="focus-visible:ring-2 focus-visible:ring-primary transition-all duration-200"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Message */}
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-medium">Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Tell me about your project or say hi 👋"
+                        className="min-h-[140px] focus-visible:ring-2 focus-visible:ring-primary transition-all duration-200"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Submit Button */}
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full text-base font-medium"
+              >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>

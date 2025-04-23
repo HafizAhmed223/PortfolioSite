@@ -7,49 +7,40 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useTheme } from '@/components/theme-provider';
+import { useEffect, useState } from 'react';
 
 export function ModeToggle() {
-  const { setTheme, theme } = useTheme();  // Extract current theme
+  const { setTheme, theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   return (
     <DropdownMenu>
-      {/* DropdownMenuTrigger makes the button clickable */}
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
           size="icon"
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center text-foreground hover:bg-muted transition bg-background/90 rounded-full p-2 border-solid border-transparent hover:border-blue/20 bg-muted/30"
         >
-          {/* Sun Icon (Light mode) */}
-          <Sun
-            className={`h-[1.5rem] w-[1.5rem] transition-transform duration-300 ease-in-out transform ${theme === 'dark' ? 'dark:rotate-90 dark:scale-0' : ''
-              }`}
-            color={theme === 'dark' ? 'white' : 'black'} // Adjust icon color based on the current theme
-          />
-          {/* Moon Icon (Dark mode) */}
-          <Moon
-            className={`absolute h-[1.5rem] w-[1.5rem] transition-transform duration-300 ease-in-out transform ${theme === 'light' ? 'dark:rotate-0 dark:scale-100' : ''
-              }`}
-            color={theme === 'light' ? 'black' : 'white'} // Adjust icon color based on the current theme
-          />
+          {theme === 'dark' ? (
+            <Moon className="h-5 w-5" />
+          ) : (
+            <Sun className="h-5 w-5" />
+          )}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
 
-      {/* Dropdown Menu content with theme options */}
       <DropdownMenuContent
         align="end"
-        className="w-40 p-2 bg-background/90 shadow-lg rounded-md dark:bg-background/95"
+        className="w-40 p-2 bg-background/90 shadow-lg rounded-md backdrop-blur-md"
       >
-        <DropdownMenuItem onClick={() => setTheme('light')}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
-          System
-        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

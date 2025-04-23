@@ -27,7 +27,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="py-20 bg-muted/30 flex items-center justify-center">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,8 +36,8 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">About Me</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
             I'm a passionate Full Stack Developer with a focus on creating scalable
             and user-friendly web applications. With expertise in the MERN stack
             and AWS, I bring ideas to life through clean code and innovative solutions.
@@ -54,7 +54,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card>
-                <CardContent className="pt-6">
+                <CardContent className="pt-6 flex flex-col justify-center items-center text-center">
                   <div className="rounded-full bg-primary/10 p-3 w-12 h-12 mb-4">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>

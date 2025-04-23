@@ -17,38 +17,34 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Toggling mobile menu with closing on item click
-  const handleMenuItemClick = () => {
-    setMobileMenuOpen(false);
-  };
+  const handleMenuItemClick = () => setMobileMenuOpen(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background w-[99vw] mx-auto">
+      {/* Header */}
       <header
         className={cn(
           'fixed top-0 w-full z-50 transition-all duration-300',
           isScrolled ? 'bg-background/80 backdrop-blur-md shadow-md' : 'bg-transparent'
         )}
       >
-        <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold">
+        <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <a href="#" className="text-3xl font-bold">
             Ahmed<span className="text-primary">.</span>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors text-lg"
               >
                 {item.name}
               </a>
@@ -56,13 +52,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <ModeToggle />
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-4">
+          {/* Mobile Nav Button */}
+          <div className="md:hidden flex items-center gap-2">
             <ModeToggle />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="rounded-full p-2 bg-blue-700 text-white hover:bg-muted/80 transition"
             >
               {mobileMenuOpen ? <X /> : <Menu />}
             </Button>
@@ -72,13 +69,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-md border-b z-50">
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            <div className="px-4 py-4 flex flex-col gap-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  onClick={handleMenuItemClick} // Close menu on item click
+                  onClick={handleMenuItemClick}
                 >
                   {item.name}
                 </a>
@@ -88,10 +85,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      <main>{children}</main>
+      {/* Main Content */}
+      <main>
+        {children}
+      </main>
 
-      <footer className="bg-muted/30 py-8">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
+      {/* Footer */}
+      <footer className="bg-muted/30 py-6 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 text-center text-muted-foreground">
           <p>© {new Date().getFullYear()} Ahmed Waseem. All rights reserved.</p>
         </div>
       </footer>
