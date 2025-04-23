@@ -35,17 +35,36 @@ export default function Contact() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+  
+    const formData = new FormData();
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_API_KEY);
+    console.log("API Key:", import.meta.env.VITE_WEB3FORMS_API_KEY);
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("message", values.message);
+  
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(values);
-      toast.success('Message sent successfully!');
-      form.reset();
-    } catch {
-      toast.error('Failed to send message. Please try again.');
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        form.reset();
+      } else {
+        toast.error(`Failed: ${data.message}`);
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error("Form Error:", error);
     } finally {
       setIsSubmitting(false);
     }
   }
+  
 
   return (
     <section id="contact" className="py-20 bg-muted/30 flex items-center justify-center">
