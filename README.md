@@ -70,7 +70,7 @@ A modern, elegant, and responsive personal portfolio built using **React.js**. S
 
 1. Clone the Repository
 
-git clone https://github.com/your-username/ahmed-portfolio.git
+git clone https://github.com/HafizAhmed223/PortfolioSite.git
 cd ahmed-portfolio
 2. Install Dependencies
 
@@ -118,5 +118,3 @@ This project is licensed under the MIT License.
 
 Made with 💙 by Ahmed
 Visit My Portfolio
-
-Let me know if you'd like a `.md` file ready to download or embedded screenshot assistance. Would also be happy to help push this into your actual repo structure if you’re syncing with GitHub!
