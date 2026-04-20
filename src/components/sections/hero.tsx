@@ -10,9 +10,9 @@ const stats = [
 ];
 
 const badges = [
-  { icon: Brain, label: 'AI Agent Developer', color: 'from-blue-500/20 to-blue-600/10 border-blue-500/30 text-blue-400' },
-  { icon: Mic, label: 'Voice AI Engineer', color: 'from-purple-500/20 to-purple-600/10 border-purple-500/30 text-purple-400' },
   { icon: Sparkles, label: 'MERN Specialist', color: 'from-cyan-500/20 to-cyan-600/10 border-cyan-500/30 text-cyan-400' },
+  { icon: Brain, label: 'Full Stack Developer', color: 'from-blue-500/20 to-blue-600/10 border-blue-500/30 text-blue-400' },
+  { icon: Mic, label: 'AI Engineer', color: 'from-purple-500/20 to-purple-600/10 border-purple-500/30 text-purple-400' },
 ];
 
 export default function HeroSection() {
@@ -55,8 +55,10 @@ export default function HeroSection() {
               >
                 <Typewriter
                   words={[
+                    'MERN Specialist',
                     'Full Stack Developer',
-                    'AI Agent Builder',
+                    'AI-First Engineer',
+                    'AI Agent Developer',
                     'Voice AI Engineer',
                     'MERN Stack Specialist',
                     'AWS Cloud Engineer',
