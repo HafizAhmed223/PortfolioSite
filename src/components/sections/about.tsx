@@ -16,7 +16,7 @@ const techStack = [
 
 const highlights = [
   { num: '3+', label: 'Years Experience' },
-  { num: '4', label: 'Companies' },
+  { num: '3', label: 'Roles at TxLabz' },
   { num: '15+', label: 'Projects Shipped' },
   { num: '100%', label: 'Remote Ready' },
 ];
@@ -34,7 +34,7 @@ export default function About() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
-            Full Stack Developer based in Lahore, Pakistan — building production-grade apps across the MERN stack and beyond.
+            Full Stack Developer based in Lahore, Pakistan — building production-grade apps across the MERN stack, Django, and AWS.
           </p>
         </motion.div>
 
@@ -79,10 +79,10 @@ export default function About() {
               From leading full-stack migrations and designing microservices architectures to collaborating with US-based clients in Agile sprints — I thrive in fast-paced environments that demand both technical depth and clear communication.
             </p>
             <p>
-              I care deeply about code quality, system performance, and shipping things that actually work. Whether it's a React SPA, a Node.js API, or cloud-deployed AWS infrastructure — I take ownership of the whole stack.
+              I care deeply about code quality, system performance, and shipping things that actually work. Whether it's a React SPA, a Django/Node.js API, or cloud-deployed AWS infrastructure — I take ownership of the whole stack.
             </p>
             <p>
-              Currently a <strong className="text-foreground font-semibold">Software Engineer at Evolve Edge Technologies</strong>, I'm open to senior and lead roles where I can drive impactful projects.
+              Currently a <strong className="text-foreground font-semibold">Software Engineer at TxLabz</strong>, I'm open to senior and lead roles where I can drive impactful projects.
             </p>
           </motion.div>
 

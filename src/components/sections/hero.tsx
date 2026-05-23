@@ -5,7 +5,7 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const stats = [
   { num: '3+', label: 'Years Experience' },
-  { num: '4', label: 'Companies' },
+  { num: '3', label: 'Roles at TxLabz' },
   { num: '15+', label: 'Projects Shipped' },
 ];
 
